@@ -51,6 +51,6 @@ dropN number (first:rest) = dropN (number-1) rest
 decode :: String -> String
 decode [] = []
 decode (x : 'o' : y : rest)
-	| x == y = x : decode (dropN 2 ('o':y:rest))
+	| x == y && isConsonant x = x : decode (dropN 2 ('o':y:rest))
 	| otherwise = x : 'o' : y : (decode (rest))
 decode (first : rest) = first : decode (rest)
