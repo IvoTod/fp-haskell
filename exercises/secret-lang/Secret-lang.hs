@@ -15,21 +15,19 @@ isInString char (first:rest)
 
 
 isVowel :: Char -> Bool
-isVowel char
-	| isInString (toLower char) vowels == True = True
-isVowel _ = False
+isVowel char = isInString (toLower char) vowels
 
 
 isConsonant :: Char -> Bool
 isConsonant char
-	| isVowel char == False && isChar char == True = True
+	| not (isVowel char) && isChar char = True
 	| otherwise = False
 
 
 encode :: String -> String
 encode [] = []
 encode (first:rest)
-	| isConsonant first == True = first : 'o' : first : (encode rest)
+	| isConsonant first = first : 'o' : first : (encode rest)
 	| otherwise = first:(encode rest)
 
 
@@ -37,7 +35,7 @@ encode (first:rest)
 encode' :: String -> String
 encode' [] = []
 encode' (first:rest)
-	| isConsonant first == True = first : 'o' : toLower first : (encode' rest)
+	| isConsonant first = first : 'o' : toLower first : (encode' rest)
 	| otherwise = first:(encode' rest)
 
 
