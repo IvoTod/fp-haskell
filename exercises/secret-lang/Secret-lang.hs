@@ -1,7 +1,10 @@
 import Data.Char(toLower)
 
+<<<<<<< HEAD
 vowels = "aeiou"
 
+=======
+>>>>>>> c48c6b3660bd9b1429acba58cb5198a8ec08411d
 isChar :: Char -> Bool
 isChar char 
 	| toLower char >= 'a' && toLower char <= 'z' = True
@@ -47,10 +50,15 @@ dropN number (first:rest) = dropN (number-1) rest
 
 
 
---Assume we'll be decoding only valid words
+-- Assume we'll be decoding only valid words
 decode :: String -> String
+<<<<<<< HEAD
 decode [] = []
 decode (x : 'o' : y : rest)
 	| x == y && isConsonant x = x : decode (dropN 2 ('o':y:rest))
 	| otherwise = x : 'o' : y : (decode (rest))
 decode (first : rest) = first : decode (rest)
+=======
+decode = undefined
+
+>>>>>>> c48c6b3660bd9b1429acba58cb5198a8ec08411d
