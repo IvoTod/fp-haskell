@@ -24,12 +24,10 @@ equalizeColumnSize :: [[String]] -> [[String]]
 equalizeColumnSize [] 		= []
 equalizeColumnSize (x:xs) 	= [pad y | y <- x] : (equalizeColumnSize xs)
 	where pad z	= padWith ' ' (getMaxColumnLength (x:xs)) z
-			
 
 toLine :: [String] -> String
 toLine [] = "|"
 toLine (x:xs) = "| " ++ x ++ " " ++ toLine xs
-
 
 padWith :: (Eq a) => a -> Int -> [a] -> [a]
 padWith _ 0 x 		| x == [] 	= [] 

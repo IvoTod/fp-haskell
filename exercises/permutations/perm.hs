@@ -4,4 +4,4 @@ import Data.List hiding (permutations)
 
 permutations :: [Int] -> [[Int]]
 permutations [] = [[]]
-permutations (x:xs) = [ y:ys | y <- (x:xs), ys <- permutations xs]
+permutations xs = [ y:ys | y <- xs, ys <- permutations (delete y xs)]
